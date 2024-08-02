@@ -7,7 +7,7 @@ function ResumeCardItem({resume}) {
   
   // console.log('card item called with resume:', resume);
   return (
-    <Link to= {'/dashboard/resume/' + resume.resumeId + '/edit'}>
+    <Link to= {'/dashboard/resume/' + resume.documentId + '/edit'}>
     
         <div className='p-14 py-24 
         bg-secondary 
