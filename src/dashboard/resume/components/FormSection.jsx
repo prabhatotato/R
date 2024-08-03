@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import PersonalDetails from "./forms/PersonalDetails";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, ArrowRight, LayoutGrid } from "lucide-react";
+import Summary from "./forms/Summary";
 
 function FormSection() {
   const [activeFormIndex, setActiveFormIndex] = useState(1);
@@ -39,6 +40,10 @@ function FormSection() {
             activeFormIndex==1 && <PersonalDetails enableNext = {(v) =>setEnableNext(v)}/>
           }
       {/* Summary */}
+
+          {
+            activeFormIndex==2 && <Summary enableNext = {(v) =>setEnableNext(v)}/>
+          }
 
       {/* Professional Experience */}
 

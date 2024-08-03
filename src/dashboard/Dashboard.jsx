@@ -25,7 +25,7 @@ function Dashboard() {
 
   return (
     <div className="p-10 md:px-20 lg:px-32">
-      <h2 className="font-bold text-3xl">My Resume</h2>
+      <h2 className="font-bold text-3xl">Your Resumes</h2>
       <p>Build the perfect resume to ace you next job application </p>
       {/* <p>Start creatnig AI resume to your next job roles </p> */}
 
