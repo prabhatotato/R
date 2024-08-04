@@ -4,6 +4,7 @@ import React, { useContext, useEffect } from 'react'
 import { useState } from 'react'
 import RichTextEditor from '../RichTextEditor'
 import { ResumeInfoContext } from '@/context/ResumeInfoContext'
+
 const formField = {
     title:'',
     companyName:'',
@@ -15,6 +16,8 @@ const formField = {
 }
  
 function Experience() {
+
+  const [loading, setLoading] = useState(false)
     const [experienceList, setExperienceList] = useState([
         formField
     ])
@@ -121,7 +124,11 @@ function Experience() {
             onClick = {removeExperience}
             >-Remove</Button>
           </div>
-          <Button  >Save</Button>
+          <Button disabled = {loading}
+          onClick={()=>onSave()}
+            >
+            {loading? <Loader2 className='animate-spin'/>:'Save'}
+            </Button>
         </div>
     </div>
   )
