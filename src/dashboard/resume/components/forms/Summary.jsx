@@ -4,7 +4,7 @@ import { ResumeInfoContext } from '@/context/ResumeInfoContext'
 import React, { useContext, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import GlobalService from '@/service/GlobalService'
-import { Loader2 } from 'lucide-react'
+import { Brain, Loader2 } from 'lucide-react'
 import { toast } from "sonner";
 import { AIchatSession } from '@/service/AI_Model'
 /*
@@ -98,6 +98,7 @@ function Summary({enableNext}) {
                 variant='outline'
                 onClick = {generateSummaryWithAI}
                 >
+                    <Brain/>
                     Generate using AI
                 </Button>
             </div>

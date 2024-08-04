@@ -17,15 +17,21 @@ function ExperiencePreview({resumeInfo}) {
                     <h2 className='txt-sm font-bold'
                     style={{color: resumeInfo?.themeColor}}
                     >{exp?.title}</h2>
-                    <h2 className='text-xs flex justify-between'>{exp?.companyName}, 
-                    {exp?.city}, 
+                    <h2 className='text-xs flex justify-between'>{exp?.companyName},  
+                    {exp?.city},  
                     {exp?.state}
-                    <span>{exp?.startDate} - {exp?.currentlyWorking? 'Present':exp?.endDate}</span>
+                    <span>{exp?.startDate} to {exp?.currentlyWorking? 'Present':exp?.endDate}</span>
                     </h2>
 
+                    {/* the rich text shows plain text if this p tag is used, even if bold, italic 
+                    etc formatting is used in rih text editor 
                     <p className=' text-xs my-2'>
                         {exp.workSummary}
-                    </p>
+                    </p> */}
+
+                    <div dangerouslySetInnerHTML={{__html: exp.workSummary}}/>
+
+                    
                 </div>
             )
 
