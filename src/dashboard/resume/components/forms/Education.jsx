@@ -87,7 +87,7 @@ function Education() {
       },[])
 
   return (
-    <div className="p-5 shadow-lg rounded-lg border-t-primary border-t-4 mt-10">
+    <div className="p-5 shadow-lg rounded-lg border-t-orange-600 border-t-4 mt-10">
         <h2 className="font-bold text-lg">Education</h2>
         <p>Details about your academics </p>
 
@@ -148,12 +148,12 @@ function Education() {
           <div className='flex gap-2'>
 
             <Button variant = 'outline' 
-            className= 'text-primary' 
+            className= 'text-orange-600' 
             onClick = {addNewEducation}
             >+Add More</Button>
 
             <Button variant = 'outline' 
-            className= 'text-primary' 
+            className= 'text-orange-600' 
             onClick = {removeEducation}
             >-Remove</Button>
           </div>

@@ -6,6 +6,7 @@ import ExperiencePreview from './preview/ExperiencePreview'
 import EducationPreview from './preview/EducationPreview'
 import SkillsPreview from './preview/SkillsPreview'
 
+
 function PreviewSection() {
 
     const {resumeInfo, setResumeInfo} = useContext(ResumeInfoContext)

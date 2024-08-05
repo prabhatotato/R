@@ -81,7 +81,7 @@ function Summary({enableNext}) {
     }
 
   return (
-    <div className="p-5 shadow-lg rounded-lg border-t-primary border-t-4 mt-10">
+    <div className="p-5 shadow-lg rounded-lg border-t-orange-600 border-t-4 mt-10">
     <h2 className="font-bold text-lg">Summary</h2>
     <p>Profile Summary for the job role</p>
 
@@ -93,7 +93,7 @@ function Summary({enableNext}) {
             <div className='flex justify-between items-end'>
 
                 <label>Add Summary</label>
-                <Button className="border-primary text-primary"
+                <Button className="border-orange-600 text-orange-600"
                 size="sm"
                 variant='outline'
                 onClick = {generateSummaryWithAI}
@@ -125,7 +125,7 @@ function Summary({enableNext}) {
               <div key={index} 
                 onClick={()=>setSummary(item?.summary)}
                 className='p-5 shadow-lg my-4 rounded-lg cursor-pointer'>
-                    <h2 className='font-bold my-1 text-primary'>Level: {item?.experienceLevel}</h2>
+                    <h2 className='font-bold my-1 text-orange-600'>Level: {item?.experienceLevel}</h2>
                     <p>{item?.summary}</p>
                 </div>
             ))

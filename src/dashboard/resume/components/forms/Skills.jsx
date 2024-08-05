@@ -84,7 +84,7 @@ useEffect(()=>{
 
 
   return (
-    <div className="p-5 shadow-lg rounded-lg border-t-primary border-t-4 mt-10">
+    <div className="p-5 shadow-lg rounded-lg border-t-orange-600 border-t-4 mt-10">
         <h2 className="font-bold text-lg">Skills</h2>
         <p>Add your skills </p>
 
@@ -117,12 +117,12 @@ useEffect(()=>{
           <div className='flex gap-2'>
 
             <Button variant = 'outline' 
-            className= 'text-primary' 
+            className= '' 
             onClick = {addNewSkill}
             >+Add More</Button>
 
             <Button variant = 'outline' 
-            className= 'text-primary' 
+            className= 'text-orange-600' 
             onClick = {removeSkill}
             >-Remove</Button>
           </div>

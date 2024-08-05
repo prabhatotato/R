@@ -66,7 +66,7 @@ function RichTextEditor({onRichextEditorChange, index, defaultValue}) {
           Summary
         </label>
 
-        <Button className='flex gap-2 border-primary text-primary'
+        <Button className='flex gap-2 border-orange-600 text-orange-600'
         variant='outline'
         size='sm'
         onClick = {generateSummaryWithAI}
