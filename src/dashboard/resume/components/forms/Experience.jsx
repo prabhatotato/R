@@ -66,11 +66,15 @@ function Experience() {
     })
   }, [experienceList])
 
+  useEffect(()=>{
+    resumeInfo&&setExperienceList(resumeInfo?.experience)
+  }, [])
+
   const onSave = ()=>{
     setLoading(true)
     const data = {
         data:{
-            experience: experienceList
+            experience: experienceList.map(({id, ...rest}) => rest)
         }
     }
 
@@ -98,32 +102,44 @@ function Experience() {
               <div className='grid grid-cols-2 gap-3 border p-3 my-5 rounded-lg'>
                 <div>
                   <label className='text-xs'>Position Title</label>
-                  <Input name='title' onChange={(e)=>handleChange(e, index)}></Input>
+                  <Input name='title' onChange={(e)=>handleChange(e, index)}
+                    defaultValue= {item?.title}
+                  ></Input>
                 </div>
 
                 <div>
                   <label className='text-xs'>Company Name</label>
-                  <Input name='companyName' onChange={(e)=>handleChange(e, index)}></Input>
+                  <Input name='companyName' onChange={(e)=>handleChange(e, index)}
+                    defaultValue= {item?.companyName}
+                  ></Input>
                 </div>
 
                 <div>
                   <label className='text-xs'>State</label>
-                  <Input name='state' onChange={(e)=>handleChange(e, index)}></Input>
+                  <Input name='state' onChange={(e)=>handleChange(e, index)}
+                    defaultValue= {item?.state}
+                  ></Input>
                 </div>
 
                 <div>
                   <label className='text-xs'>City</label>
-                  <Input name='city' onChange={(e)=>handleChange(e, index)}></Input>
+                  <Input name='city' onChange={(e)=>handleChange(e, index)}
+                     defaultValue= {item?.city}
+                  ></Input>
                 </div>
 
                 <div>
                   <label className='text-xs'>Start Date</label>
-                  <Input name='startDate' type = 'date'onChange={(e)=>handleChange(e, index)}></Input>
+                  <Input name='startDate' type = 'date'onChange={(e)=>handleChange(e, index)}
+                    defaultValue= {item?.startDate}
+                  ></Input>
                 </div>
 
                 <div>
                   <label className='text-xs'>End Date</label>
-                  <Input name='endDate' type = 'date' onChange={(e)=>handleChange(e, index)}></Input>
+                  <Input name='endDate' type = 'date' onChange={(e)=>handleChange(e, index)}
+                    defaultValue= {item?.endDate}
+                  ></Input>
                 </div>
                 
                 <div className='col-span-2'>
@@ -131,6 +147,7 @@ function Experience() {
                  <RichTextEditor 
                  onRichextEditorChange={(e)=>handleRichTextEditor(e, 'workSummary', index)}
                   index={index}
+                  defaultValue= {item?.workSummary}
                  />
                 </div>
 

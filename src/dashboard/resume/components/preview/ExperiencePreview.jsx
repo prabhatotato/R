@@ -29,7 +29,7 @@ function ExperiencePreview({resumeInfo}) {
                         {exp.workSummary}
                     </p> */}
 
-                    <div dangerouslySetInnerHTML={{__html: exp.workSummary}}/>
+                    <div className=' text-xs my-2' dangerouslySetInnerHTML={{__html: exp.workSummary}}/>
 
                     
                 </div>

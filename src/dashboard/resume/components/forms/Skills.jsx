@@ -53,7 +53,7 @@ const onSave = ()=>{
     setLoading(true)
     const data = {
         data:{
-            skills: skillSet
+            skills: skillSet.map(({id, ...rest})=> rest)
         }
     }
 
@@ -78,6 +78,11 @@ useEffect(()=>{
     )
 },[skillSet])
 
+useEffect(()=>{
+    skillSet&&setSkillSet(resumeInfo?.skills)
+  },[])
+
+
   return (
     <div className="p-5 shadow-lg rounded-lg border-t-primary border-t-4 mt-10">
         <h2 className="font-bold text-lg">Skills</h2>
@@ -89,7 +94,9 @@ useEffect(()=>{
                     <div key={index} className='flex justify-between border rounded-lg p-3 mb-2' >
                         <div>
                             <label className='text-xs'>Name</label>
-                            <Input className='w-full'onChange = {(e)=>handleChange(index,'name',e.target.value)}/>
+                            <Input className='w-full'onChange = {(e)=>handleChange(index,'name',e.target.value)}
+                             defaultValue = {item?.name}   
+                            />
 
                         </div>
 
@@ -98,7 +105,8 @@ useEffect(()=>{
                         style={{maxWidth:120}} 
                         isRequired value={item.rating} 
                         onChange={(v)=>handleChange(index, 'rating', v)} 
-                            />
+                        defaultValue = {item?.rating}   
+                        />
                         </div>
                     </div>
                 ))

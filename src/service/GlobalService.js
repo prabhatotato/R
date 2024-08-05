@@ -18,8 +18,11 @@ const getUserResumes  = (userEmail)=> axiosClient.get('/api/user-resumes?filters
 
 const updateResumeDetails = (id, data)=> axiosClient.put('/api/user-resumes/'+ id, data )
 
+const getResumeById = (id)=>axiosClient.get('/api/user-resumes/'+ id + "?populate=*")
 export default{
     createNewResume,
     getUserResumes,
-    updateResumeDetails
+    updateResumeDetails,
+    getResumeById
+
 }

@@ -28,8 +28,8 @@ import { AIchatSession } from "@/service/AI_Model";
 ]
 }. Note that it is an object that contains an array whose key is 'experience'`
 
-function RichTextEditor({onRichextEditorChange, index}) {
-  const [value, setValue] = useState();
+function RichTextEditor({onRichextEditorChange, index, defaultValue}) {
+  const [value, setValue] = useState(defaultValue);
   const [loading, setLoading] = useState(false)
 
   const {resumeInfo, setResumeInfo} = useContext(ResumeInfoContext)
@@ -81,6 +81,7 @@ function RichTextEditor({onRichextEditorChange, index}) {
       <EditorProvider>
         <Editor
           value={value}
+          defaultValue={defaultValue}
           onChange={(e) => {
             setValue(e.target.value);
             onRichextEditorChange(e)

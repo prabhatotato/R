@@ -59,7 +59,7 @@ function Education() {
         setLoading(true)
         const data = {
             data:{
-                education: educationList
+                education: educationList.map(({id, ...rest}) => rest)
             }
         }
 
@@ -82,6 +82,10 @@ function Education() {
         })
     }, [educationList])
 
+    useEffect(()=>{
+        resumeInfo&&setEducationList(resumeInfo?.education)
+      },[])
+
   return (
     <div className="p-5 shadow-lg rounded-lg border-t-primary border-t-4 mt-10">
         <h2 className="font-bold text-lg">Education</h2>
@@ -94,32 +98,44 @@ function Education() {
                         <div className='grid grid-cols-2 gap-3 border p-3 my-5 rounded-lg'>
                             <div className='col-span-2'>
                                 <label>University name</label>
-                                <Input name='universityName' onChange = {(e)=>handleChange(e,index)}/>
+                                <Input name='universityName' onChange = {(e)=>handleChange(e,index)}
+                                    defaultValue ={item?.universityName}
+                                />
                             </div>
 
                             <div>
                                 <label>Degree</label>
-                                <Input name='degree' onChange = {(e)=>handleChange(e,index)}/>
+                                <Input name='degree' onChange = {(e)=>handleChange(e,index)}
+                                    defaultValue ={item?.degree}
+                                />
                             </div>
 
                             <div>
                                 <label>Major</label>
-                                <Input name='major' onChange = {(e)=>handleChange(e,index)}/>
+                                <Input name='major' onChange = {(e)=>handleChange(e,index)}
+                                    defaultValue ={item?.major}
+                                />
                             </div>
 
                             <div>
                                 <label>Start date</label>
-                                <Input name='startDate' type='date' onChange = {(e)=>handleChange(e,index)}/>
+                                <Input name='startDate' type='date' onChange = {(e)=>handleChange(e,index)}
+                                    defaultValue ={item?.startDate}
+                                />
                             </div>
 
                             <div>
                                 <label>End date</label>
-                                <Input name='endDate' type='date' onChange = {(e)=>handleChange(e,index)}/>
+                                <Input name='endDate' type='date' onChange = {(e)=>handleChange(e,index)}
+                                    defaultValue ={item?.endDate}
+                                />
                             </div>
 
                             <div className='col-span-2'>
                                 <label>Description</label>
-                                <Textarea className='col-span-2' name='description' onChange = {(e)=>handleChange(e,index)}/>
+                                <Textarea className='col-span-2' name='description' onChange = {(e)=>handleChange(e,index)}
+                                    defaultValue ={item?.description}
+                                />
                             </div>
                         </div>
 
