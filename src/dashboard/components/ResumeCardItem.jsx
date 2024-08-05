@@ -1,6 +1,8 @@
-import { Notebook } from 'lucide-react'
+import { Notebook, } from 'lucide-react'
 import React from 'react'
 import { Link } from 'react-router-dom';
+
+import { FileText } from 'lucide-react';
 
 function ResumeCardItem({resume}) {
 
@@ -21,7 +23,9 @@ function ResumeCardItem({resume}) {
         hover:scale-105 transition-all
         hover: shadow-lg
         hover: cursor-pointer '>
-            <Notebook/>
+            
+            
+            <FileText />
             {/* <h2>resume card item</h2> */}
         </div>
             <h2 className='text-center my-1'>{resume.title}</h2>

@@ -22,7 +22,11 @@ import { ResumeInfoContext } from "@/context/ResumeInfoContext";
 import { toast } from "sonner";
 import { AIchatSession } from "@/service/AI_Model";
 
-  const PROMPT = 'position title: {positionTitle}. Depending on the position title, give me 5-7 bullet points for my experience in resume.The result should be in html format.'
+  const PROMPT = `position title: {positionTitle}. Depending on the position title, give me 5 short bullet phrases for my experience in resume.The result should be a json object with this structure:
+{
+'experience': [
+]
+}. Note that it is an object that contains an array whose key is 'experience'`
 
 function RichTextEditor({onRichextEditorChange, index}) {
   const [value, setValue] = useState();
@@ -40,14 +44,17 @@ function RichTextEditor({onRichextEditorChange, index}) {
     const prompt = PROMPT.replace('{positionTitle}', resumeInfo.experience[index].title  )
 
     const result = await AIchatSession.sendMessage(prompt)
-    
-    console.log(result.response.text());
 
-    let resp = JSON.parse(result.response.text())
-    
-    setValue(resp.experience.join('\n  '))
+    console.log(JSON.parse(result.response.text()).experience);
+
+    const resp = JSON.parse(result.response.text()).experience
+    // setValue(resp.join('\n'))
+    // console.log(value);
+    const formattedResp = `<ul><li>${resp.join('</li><li>')}</li></ul>`;
+    setValue(formattedResp)
 
     setLoading(false)
+
     
   }
 

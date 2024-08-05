@@ -4,6 +4,10 @@ import React, { useContext, useEffect } from 'react'
 import { useState } from 'react'
 import RichTextEditor from '../RichTextEditor'
 import { ResumeInfoContext } from '@/context/ResumeInfoContext'
+import { Loader2 } from 'lucide-react'
+import GlobalService from '@/service/GlobalService'
+import { useParams } from 'react-router-dom'
+import { toast } from 'sonner'
 
 const formField = {
     title:'',
@@ -18,18 +22,15 @@ const formField = {
 function Experience() {
 
   const [loading, setLoading] = useState(false)
-    const [experienceList, setExperienceList] = useState([
+  const [experienceList, setExperienceList] = useState([
         formField
-    ])
+  ])
 
-    const {resumeInfo, setResumeInfo}=useContext(ResumeInfoContext)
+  const params = useParams()
 
-    useEffect(()=>{
-      setResumeInfo({
-        ...resumeInfo,
-        experience:experienceList
-      })
-    }, [experienceList])
+  const {resumeInfo, setResumeInfo}=useContext(ResumeInfoContext)
+
+   
 
   const handleChange = (e, index)=>{
     const newEntries = experienceList.slice()
@@ -56,6 +57,34 @@ function Experience() {
     console.log(experienceList);
 
   }
+  useEffect(()=>{
+    console.log(experienceList);
+    
+    setResumeInfo({
+      ...resumeInfo,
+      experience:experienceList
+    })
+  }, [experienceList])
+
+  const onSave = ()=>{
+    setLoading(true)
+    const data = {
+        data:{
+            experience: experienceList
+        }
+    }
+
+    GlobalService.updateResumeDetails(params.resumeId, data).then((resp)=>{
+        console.log(resp);
+        setLoading(false)   
+        toast('Experience details updated!')
+    }, (error)=>{
+        setLoading(false)  
+        toast('Something went wrong! Please try again.')
+
+
+    })
+}
 
   return (
     <div className="p-5 shadow-lg rounded-lg border-t-primary border-t-4 mt-10">

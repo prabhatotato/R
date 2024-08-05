@@ -92,7 +92,7 @@ function Education() {
                 educationList.map((item,index)=>(
                     <div key={index}>
                         <div className='grid grid-cols-2 gap-3 border p-3 my-5 rounded-lg'>
-                            <div>
+                            <div className='col-span-2'>
                                 <label>University name</label>
                                 <Input name='universityName' onChange = {(e)=>handleChange(e,index)}/>
                             </div>
@@ -117,7 +117,7 @@ function Education() {
                                 <Input name='endDate' type='date' onChange = {(e)=>handleChange(e,index)}/>
                             </div>
 
-                            <div>
+                            <div className='col-span-2'>
                                 <label>Description</label>
                                 <Textarea className='col-span-2' name='description' onChange = {(e)=>handleChange(e,index)}/>
                             </div>
